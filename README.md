@@ -6,7 +6,7 @@ This project presents a robust method for securing data through the integration 
 
 # Motivation
 
-The increasing complexity and frequency of cyber threats necessitate innovative solutions for data protection. Traditional encryption methods, while effective, can be vulnerable if encryption keys are discovered. By combining AES encryption with steganography, this project aims to enhance data security, ensuring that even if the encryption is detected, the data remains protected through covert embedding within images.
+The increasing complexity and frequency of cyber threats necessitate innovative solutions for data protection. While effective, traditional encryption methods can be vulnerable if encryption keys are discovered. By combining AES encryption with steganography, this project aims to enhance data security, ensuring that even if the encryption is detected, the data remains protected through covert image embedding.
 
 # Problem Statement
 
@@ -21,7 +21,7 @@ The primary goal is to develop an efficient and secure method for encrypting tex
 # Scope
 
 The project focuses on:
-- Implementing an AES-encrypted text hiding mechanism within images.
+- Implementing an AES-encrypted text-hiding mechanism within images.
 - Exploring covert communication techniques to ensure imperceptibility.
 - Addressing the balance between security, efficiency, and key management in cryptographic image hiding.
 
@@ -33,7 +33,7 @@ Current methods for securing data within images often utilize basic encryption o
 
 Proposed System:
 
-This project proposes a comprehensive solution that integrates AES encryption with efficient and imperceptible text embedding within images. This combination enhances data security by ensuring a high level of encryption strength and effective covert communication.
+This project proposes a comprehensive solution that integrates AES encryption with efficient and imperceptible text embedded within images. This combination enhances data security by ensuring a high level of encryption strength and effective covert communication.
 
  Advantages
 
