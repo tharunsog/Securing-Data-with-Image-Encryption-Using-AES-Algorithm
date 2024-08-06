@@ -1,0 +1,58 @@
+{% extends "home.html" %}
+{% block content %}
+
+<center>
+    <form class="form-control w-50" action="{% url 'decryptdata' %}" method="post" style="margin-top:2rem"
+        enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2 style="color: black;">Decrypt File Page</h2>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="row g-3 align-items-center">
+
+            <div class="form-group">
+                {{ form.fileid.label_tag }}
+                {{ form.fileid }}
+            </div>
+
+            <div class="form-group">
+                {{ form.imagefile.label_tag }}
+                {{ form.imagefile }}
+            </div>
+
+            <div class="form-group">
+                {{ form.filename.label_tag }}
+                {{ form.filename }}
+            </div>
+            <div class="form-group">
+                {{ form.algorithm.label_tag }}
+                {{ form.algorithm }}
+            </div>
+            <div class="form-group">
+                {{ form.key.label_tag }}
+                {{ form.key }}
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary" id="liveToastBtn" style="margin-left: 18rem;">Submit
+                </button>
+            </div>
+        </div>
+    </form>
+
+
+</center>
+
+
+
+
+
+
+
+
+
+{% endblock %}

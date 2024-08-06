@@ -1,0 +1,50 @@
+{% extends "home.html" %}
+{% block content %}
+
+<center>
+    <form class="form-control w-50" action="{% url 'hidingimage' %}" method="post" style="margin-top:2rem"
+        enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2 style="color: black;">Hide Data Page</h2>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="row g-3 align-items-center">
+
+            <div class="form-group">
+                <input type="text" name="algorithm" value="{{algorithm}}" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label><b>Select Image</b></label>
+                <input type="file" name="imagefiledata" class="form-control" />
+            </div>
+            <div class="form-group">
+                {% for i in all_data_files %}
+                <select name="filename" class="form-control">
+                    <option value="{{i.filename}}">{{i.filename}}</option>
+                </select>
+                {% endfor %}
+            </div>
+
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary" id="liveToastBtn" style="margin-left: 18rem;">Submit
+                </button>
+            </div>
+        </div>
+    </form>
+
+
+</center>
+
+
+
+
+
+
+
+
+{% endblock %}

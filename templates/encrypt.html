@@ -1,0 +1,54 @@
+{% extends "home.html" %}
+{% block content %}
+
+<div class="card text-bg-dark">
+    <img src="/static/images/closed-padlock-digital-background-cyber-security_42077-16005.jpg" class="card-img"
+        alt="..." style="height:35rem;">
+    <center>
+        <div class="card-img-overlay">
+            <form class="form-control w-50" action="{% url 'encryptdata' %}" method="post" style="margin-top:0.5rem">
+                {% csrf_token %}
+                <h2 style="color: black;">Encrypt Data Page</h2>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                </ul>
+                {% endif %}
+                <div class="row g-3 align-items-center">
+
+                    <div class="form-group" style="margin-top:2px;">
+                        {{ form.filename.label_tag }}
+                        {{ form.filename }}
+                    </div>
+                    <div class="form-group" style="margin-top:2px;">
+                        {{ form.usertext.label_tag }}
+                        {{ form.usertext }}
+                    </div>
+
+                    <div class="form-group" style="margin-top:2px;">
+                        {{ form.algorithm.label_tag }}
+                        {{ form.algorithm }}
+                    </div>
+
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary" id="liveToastBtn"
+                            style="margin-left: 18rem;">Encrypt
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+
+    </center>
+
+
+
+</div>
+</center>
+</div>
+
+<center>
+
+    {% endblock %}

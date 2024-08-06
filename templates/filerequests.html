@@ -1,0 +1,61 @@
+{% extends "home.html" %}
+{% block content %}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<center>
+    <table>
+        <h2>File Details</h2>
+        <th style="text-align:center;">Id</th>
+        <th style="text-align:center;">File Name</th>
+        <th style="text-align:center;">Algorithm</th>
+
+        {% if useremail %}
+        <th style="text-align:center;">Action</th>
+        {% else %}
+        <th style="text-align:center;">Action</th>
+        {% endif %}
+
+
+        {% for i in all_data %}
+        <tr>
+            <td style="text-align:center;">{{i.id}}</td>
+            <td style="text-align:center;">{{i.filename}}</td>
+            <td style="text-align:center;">{{i.algorithm}}</td>
+            {% if i.useremail == useremail %}
+            <td style="text-align:center;">File Uploaded by You</td>
+
+            {% else %}
+            <td style="text-align:center;">
+                <a href="{% url 'sendrequest' i.id %}" class="btn btn-success">Send Request</a>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+
+
+
+
+
+
+
+
+{% endblock %}

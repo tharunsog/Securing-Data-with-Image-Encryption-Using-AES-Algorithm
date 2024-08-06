@@ -1,0 +1,57 @@
+{% extends "home.html" %}
+
+{% block content %}
+<center>
+    {{filename}}
+    <div class="col-xl-9">
+        <textarea id="text-val" rows="4" style="height:124px;width:385px;" readonly>{{ content }}</textarea>
+    </div>
+    <div class="col-xl-9">
+        <input type="button" id="dwn-btn" value="Download " />
+    </div>
+</center>
+
+
+<script>
+    function download(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+    }
+
+    // Start file download.
+    document.getElementById("dwn-btn").addEventListener("click", function () {
+        // Generate download of hello.txt file with some content
+        var text = document.getElementById("text-val").value;
+        var filename = "Download.txt";
+
+        download(filename, text);
+    }, false);
+</script>
+<script>
+    $('.datepicker').datepicker({
+        iconsLibrary: 'fontawesome',
+        icons: {
+            rightIcon: '<span class="fa fa-calendar"></span>'
+        }
+    });
+
+    $('.timepicker').timepicker({
+        iconsLibrary: 'fontawesome',
+        icons: {
+            rightIcon: '<span class="fa fa-clock-o"></span>'
+        }
+    });
+    $(document).ready(function () {
+        $('.js-example-basic-multiple').select2();
+    });
+</script>
+
+{% endblock %}
